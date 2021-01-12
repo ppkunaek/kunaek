@@ -1,0 +1,26 @@
+<div>
+    <table>
+        <tr>
+            <td>TeacherId </td>
+            <td>teacherName</td>
+            <td>teacherTel </td>
+            <td>subjectTaught </td>
+
+        </tr>
+        <tr *ngFor="let t of teacherList">
+            <td>{{ t.teacherId }}</td>
+            <td>{{ t.teacherName }}</td>
+            <td>{{ t.teacherTel }}</td>
+            <td>{{ t.subjectTaught }}</td>
+            <button (click)="dataGetTeacherByid(t.teacherId)">Click</button>
+        </tr>
+    </table>
+</div>
+
+<div *ngIf="teacherData != undefined">
+    <h3>ShowDataTeacherOnclick</h3>
+    <p>TeacherId : {{ teacherData.teacherId }}</p>
+    <p>TeacherName : {{ teacherData.teacherName }}</p>
+    <p>TeacherTel : {{ teacherData.teacherTel }}</p>
+    <p>SubjectTaught : {{ teacherData.subjectTaught }}</p>
+</div>
