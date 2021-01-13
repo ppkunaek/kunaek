@@ -6,6 +6,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CallapiService {
+  addTeacherData(dataStudents: any) {
+    throw new Error('Method not implemented.');
+  }
 
   public static apiUrl = "https://3meetestclassroomapi.azurewebsites.net/api/";
 

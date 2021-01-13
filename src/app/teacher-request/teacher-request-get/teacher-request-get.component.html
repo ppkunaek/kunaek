@@ -1,3 +1,4 @@
+<h1>Teacher</h1>
 <div>
     <table>
         <tr>
@@ -5,14 +6,16 @@
             <td>teacherName</td>
             <td>teacherTel </td>
             <td>subjectTaught </td>
-
+            <td>ShowData</td>
+            <td>EditData</td>
         </tr>
         <tr *ngFor="let t of teacherList">
             <td>{{ t.teacherId }}</td>
             <td>{{ t.teacherName }}</td>
             <td>{{ t.teacherTel }}</td>
             <td>{{ t.subjectTaught }}</td>
-            <button (click)="dataGetTeacherByid(t.teacherId)">Click</button>
+            <button (click)="dataGetTeacherByid(t.teacherId)">Show</button>
+            <button (click)="editdata(t)">Edit</button>
         </tr>
     </table>
 </div>
@@ -23,4 +26,72 @@
     <p>TeacherName : {{ teacherData.teacherName }}</p>
     <p>TeacherTel : {{ teacherData.teacherTel }}</p>
     <p>SubjectTaught : {{ teacherData.subjectTaught }}</p>
+</div>
+
+<!-- <div class="input">
+    <div class="input-container">
+        <form [formGroup]="profileForm">
+            <mat-form-field appearance="fill">
+                <mat-label>teacherId :</mat-label>
+                <input matInput formControlName="ID" />
+            </mat-form-field>
+            <br />
+            <mat-form-field appearance="fill">
+                <mat-label>teacherName :</mat-label>
+                <input matInput formControlName="PASSWORD" />
+            </mat-form-field>
+            <br />
+            <mat-form-field appearance="fill">
+                <mat-label>teacherTele :</mat-label>
+                <input matInput formControlName="NameSurname" />
+            </mat-form-field>
+            <br />
+            <mat-form-field appearance="fill">
+                <mat-label>subjectTaught :</mat-label>
+                <input matInput formControlName="Address" />
+            </mat-form-field>
+            <br />
+        </form>
+        <br />
+        <br />
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+            <button mat-raised-button color="primary" (click)="submit()" type="submit" [disabled]="!profileForm.valid">
+        Submit
+      </button> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <button mat-raised-button mat-dialog-close>Cancel</button>
+        </form>
+    </div>
+</div> -->
+<br>
+<hr>
+<h2>Input Teacher</h2>
+<div>
+    <form [formGroup]="teachereForm" (ngSubmit)="onSubmit()">
+        <label>TeacherId</label>
+        <input formControlName="TeacherId">
+        <label>TeacherName</label>
+        <input formControlName="TeacherName">
+        <label>TeacherTel</label>
+        <input formControlName="TeacherTel">
+        <label>SubjectTaught</label>
+        <input formControlName="SubjectTaught">
+        <button type="submit" [disabled]="!teachereForm.valid">Submit</button>
+    </form>
+</div>
+<br>
+<hr>
+<br>
+<h2>Edit Teacher</h2>
+<div *ngIf="dataFormEdit.valid != null">
+    <form [formGroup]="dataFormEdit" (ngSubmit)="editStudentData()">
+        <label>TeacherId</label>
+        <input formControlName="TeacherId" readonly>
+        <label>TeacherName</label>
+        <input formControlName="TeacherName">
+        <label>TeacherTel</label>
+        <input formControlName="TeacherTel">
+        <label>SubjectTaught</label>
+        <input formControlName="SubjectTaught">
+        <button type="submit" [disabled]="!dataFormEdit.valid">Submit</button>
+    </form>
 </div>
